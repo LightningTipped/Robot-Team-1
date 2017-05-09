@@ -4,6 +4,10 @@
 
 //look at assignment 5 to understand this
 
+/* motor 1 = left hand side
+ * motor 2 = right hand side 
+/**/
+
 int main(){
 	init();
 	moveForward();
@@ -14,8 +18,8 @@ int main(){
 
 int moveForward(){
 	take_picture();
-	my_pixel = get_pixel(160, 120, 3);
-	if(my_pixel > 160){
+	int my_pixel = get_pixel(160, 120, 3);
+	if(my_pixel >= 127){
 		set_motor(1, 20); //tells motor 1 to go a bit
 		sleep1(5,0); //sleeps
 		
@@ -24,6 +28,8 @@ int moveForward(){
 	}
 	stop(1);
 	stop(2);
+	
+	return 0;
 }
 int moveBackward(){
 	set_motor(1, -20);
@@ -34,4 +40,6 @@ int moveBackward(){
 	
 	stop(1);
 	stop(2);
+	
+	return 0;
 }
