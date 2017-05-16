@@ -4,14 +4,15 @@
 
 /* motor 1 = left hand side
  * motor 2 = right hand side 
-/**/
+**/
 
+int lSpeed; int rSpeed; int scale; int total;
 int moveForward(){
 	
-	int lSpeed = 50;
-	int rSpeed = 50;
-	int scale = 0.2;
-	int total = 0;
+	lSpeed = 50;
+	rSpeed = 50;
+	scale = 0.2;
+	total = 0;
 	bool isWhite = false;
 	int count = 0;
 	
@@ -20,11 +21,13 @@ int moveForward(){
 		count = 0;
 		total = 0;
 		take_picture();
-		for(int i=0, i<319, i++){
+		for(int i=0; i<319; i++){
 			isWhite = (get_pixel(120, i, 3) > 100);
+			printf("%d ",isWhite);	
 			if(isWhite){
 				total += (160-i);
 				count ++;
+			}
 		}
 		
 		printf("count: %d\n", count);
@@ -48,9 +51,11 @@ int moveBackward(){
 	return 0;
 }
 
+
 int main(){
 	init();
 	moveForward();
-	
+
 	return 0;
 }
+
